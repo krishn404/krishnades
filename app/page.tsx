@@ -12,7 +12,7 @@ import { ProjectModal } from "@/components/project-modal"
 import { RetroWindow } from "@/components/retro-window"
 import { RetroButton } from "@/components/retro-button"
 import { RetroCard } from "@/components/retro-card"
-import { FloatingElements } from "@/components/floating-elements"
+// import { FloatingElements } from "@/components/floating-elements"
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -162,7 +162,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-cream-50 overflow-x-hidden">
       {/* Floating Decorative Elements */}
-      <FloatingElements />
+      {/* <FloatingElements /> */}
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 w-full z-50 px-6 py-4 md:px-12 md:py-6 flex justify-between items-center bg-cream-100 shadow-lg border-b-4 border-gray-800">
