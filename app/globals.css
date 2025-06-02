@@ -1,0 +1,381 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+
+    /* Retro color palette */
+    --cream-50: #fefcf3;
+    --cream-100: #fdf8e7;
+    --cream-200: #f9f0c7;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #fdf8e7;
+    border: 2px solid #1f2937;
+    border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #f97316;
+    border: 2px solid #1f2937;
+    border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ea580c;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Selection styles */
+  ::selection {
+    background: rgba(249, 115, 22, 0.3);
+    color: #1f2937;
+  }
+
+  ::-moz-selection {
+    background: rgba(249, 115, 22, 0.3);
+    color: #1f2937;
+  }
+}
+
+@layer utilities {
+  .bg-cream-50 {
+    background-color: var(--cream-50);
+  }
+
+  .bg-cream-100 {
+    background-color: var(--cream-100);
+  }
+
+  .bg-cream-200 {
+    background-color: var(--cream-200);
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes bounce-subtle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(249, 115, 22, 0.5);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pixel-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes retro-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite alternate;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 0.5s ease-out;
+}
+
+.animate-pixel-spin {
+  animation: pixel-spin 10s linear infinite;
+}
+
+.animate-retro-blink {
+  animation: retro-blink 2s ease-in-out infinite;
+}
+
+/* Retro-inspired effects */
+.retro-shadow {
+  box-shadow: 4px 4px 0px rgba(31, 41, 55, 1);
+}
+
+.retro-shadow-lg {
+  box-shadow: 8px 8px 0px rgba(31, 41, 55, 1);
+}
+
+.retro-shadow-orange {
+  box-shadow: 4px 4px 0px rgba(249, 115, 22, 1);
+}
+
+.retro-shadow-blue {
+  box-shadow: 4px 4px 0px rgba(74, 144, 226, 1);
+}
+
+.retro-shadow-red {
+  box-shadow: 4px 4px 0px rgba(248, 113, 113, 1);
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Typography */
+.text-retro {
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+/* Button styles */
+.btn-retro {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 4px solid #1f2937;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 4px 4px 0px rgba(31, 41, 55, 1);
+}
+
+.btn-retro:hover {
+  transform: translateY(-2px);
+}
+
+.btn-retro:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+/* Card styles */
+.card-retro {
+  border: 4px solid #1f2937;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  background-color: var(--cream-50);
+}
+
+.card-retro:hover {
+  transform: translateY(-3px);
+  box-shadow: 4px 4px 0px rgba(31, 41, 55, 1);
+}
+
+/* Loading animations */
+.loading-dots {
+  display: inline-block;
+}
+
+.loading-dots::after {
+  content: "";
+  animation: dots 1.5s steps(5, end) infinite;
+}
+
+@keyframes dots {
+  0%,
+  20% {
+    color: rgba(0, 0, 0, 0);
+    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0);
+  }
+  40% {
+    color: #f97316;
+    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0);
+  }
+  60% {
+    text-shadow: 0.25em 0 0 #f97316, 0.5em 0 0 rgba(0, 0, 0, 0);
+  }
+  80%,
+  100% {
+    text-shadow: 0.25em 0 0 #f97316, 0.5em 0 0 #f97316;
+  }
+}
+
+/* Focus styles */
+.focus-retro:focus {
+  outline: none;
+  border-color: #f97316;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+}
+
+/* Gradient backgrounds */
+.bg-retro-gradient {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+}
+
+.bg-retro-gradient-blue {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+.bg-retro-gradient-red {
+  background: linear-gradient(135deg, #f87171 0%, #dc2626 100%);
+}
+
+/* Retro window chrome */
+.retro-window {
+  border: 4px solid #1f2937;
+  border-radius: 0.5rem;
+  background-color: var(--cream-50);
+  box-shadow: 4px 4px 0px rgba(31, 41, 55, 1);
+}
+
+.retro-window-header {
+  border-bottom: 2px solid #1f2937;
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+}
+
+/* Pixel art styles */
+.pixel-border {
+  border: 2px solid #1f2937;
+  image-rendering: pixelated;
+}
+
+.pixel-corners {
+  clip-path: polygon(
+    0 4px,
+    4px 4px,
+    4px 0,
+    calc(100% - 4px) 0,
+    calc(100% - 4px) 4px,
+    100% 4px,
+    100% calc(100% - 4px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 4px) 100%,
+    4px 100%,
+    4px calc(100% - 4px),
+    0 calc(100% - 4px)
+  );
+}
