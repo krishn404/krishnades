@@ -82,13 +82,13 @@ export default function Home() {
       description: "Completely mobile responsive UI for a Personalised Fitness App",
       fullDescription:
         "Designed a completely mobile responsive UI for a Personalised Fitness App. Used bento grid for the layout and gave it modern iOS design.",
-      image: "/fitwell.png",
+      image: "/Fitwell.png",
       category: "UI/UX Design",
       year: "2024",
       client: "Personal Project",
       duration: "2 months",
       technologies: ["Figma", "UI Design", "Prototyping"],
-      gallery: ["/fitwell.png", "/fitwell-home.png", "/fitwell2.png"],
+      gallery: ["/Fitwell.png", "/fitwell-home.png", "/fitwell2.png"],
       featured: false,
     },
     {
