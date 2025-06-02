@@ -60,8 +60,6 @@ export default function Home() {
       technologies: ["Figma", "UI Design", "Prototyping"],
       gallery: ["/saasto.png"],
       featured: true,
-      likes: 156,
-      views: 892,
       link: "https://www.figma.com/design/JVVrgUfm3KEmIj5Y1jgA7G/Untitled?node-id=0-1&t=HT1hU9kyIKajPET7-1",
     },
     {
@@ -77,8 +75,6 @@ export default function Home() {
       technologies: ["Adobe Photoshop", "Canva"],
       gallery: ["/seedhemaut.jpg"],
       featured: false,
-      likes: 189,
-      views: 892,
     },
     {
       id: 3,
@@ -94,8 +90,6 @@ export default function Home() {
       technologies: ["Figma", "UI Design", "Prototyping"],
       gallery: ["/fitwell.png", "/fitwell-home.png", "/fitwell2.png"],
       featured: false,
-      likes: 189,
-      views: 892,
     },
     {
       id: 4,
@@ -111,8 +105,6 @@ export default function Home() {
       technologies: ["Google Fonts", "Figma"],
       gallery: ["/gitfriend.png"],
       featured: true,
-      likes: 234,
-      views: 1456,
     },
     {
       id: 5,
@@ -127,8 +119,6 @@ export default function Home() {
       technologies: ["Adobe Photoshop", "Canva"],
       gallery: ["/step.jpg"],
       featured: false,
-      likes: 156,
-      views: 743,
     },
     {
       id: 7,
@@ -144,8 +134,6 @@ export default function Home() {
       technologies: ["Adobe Photoshop", "Canva"],
       gallery: ["/thumbnail - comeback.png"],
       featured: true,
-      likes: 428,
-      views: 3200,
     },
   ]
 
@@ -167,7 +155,7 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 w-full z-50 px-6 py-4 md:px-12 md:py-6 flex justify-between items-center bg-cream-100 shadow-lg border-b-4 border-gray-800">
         <Link href="/" className="text-2xl font-black tracking-tight">
-          KRISHNA<span className="text-orange-500">DESIGNS</span>
+          <span className="text-gray-900">KRISHNA</span><span className="text-orange-500">DESIGNS</span>
         </Link>
 
         <div className="hidden md:flex space-x-8">
@@ -367,17 +355,7 @@ export default function Home() {
                         </div>
 
                         {/* Stats Overlay */}
-                        <div className="absolute bottom-4 left-4 flex gap-3">
-                          <div className="flex items-center gap-1 bg-cream-50/90 backdrop-blur-sm rounded-full px-3 py-1 shadow-sm border border-gray-800">
-                            <Heart className="w-4 h-4 text-red-400" />
-                            <span className="text-gray-800 text-sm font-bold">{project.likes}</span>
-                          </div>
-                          <div className="flex items-center gap-1 bg-cream-50/90 backdrop-blur-sm rounded-full px-3 py-1 shadow-sm border border-gray-800">
-                            <Eye className="w-4 h-4 text-blue-500" />
-                            <span className="text-gray-800 text-sm font-bold">{project.views}</span>
-                          </div>
-                        </div>
-
+                        
                         {/* Featured Badge */}
                         <div className="absolute top-4 right-4">
                           <div className="bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider border-2 border-gray-800">
@@ -443,16 +421,7 @@ export default function Home() {
                       </div>
 
                       {/* Stats */}
-                      <div className="absolute bottom-2 left-2 flex gap-2">
-                        <div className="flex items-center gap-1 bg-cream-50/90 backdrop-blur-sm rounded-full px-2 py-1 shadow-sm border border-gray-800">
-                          <Heart className="w-3 h-3 text-red-400" />
-                          <span className="text-gray-800 text-xs font-bold">{project.likes}</span>
-                        </div>
-                        <div className="flex items-center gap-1 bg-cream-50/90 backdrop-blur-sm rounded-full px-2 py-1 shadow-sm border border-gray-800">
-                          <Eye className="w-3 h-3 text-blue-500" />
-                          <span className="text-gray-800 text-xs font-bold">{project.views}</span>
-                        </div>
-                      </div>
+                      
 
                       {project.featured && (
                         <div className="absolute top-2 right-2">
@@ -617,9 +586,9 @@ export default function Home() {
       <footer className="py-12 px-6 md:px-12 bg-cream-100 border-t-4 border-gray-800">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <Link href="/" className="text-2xl font-black tracking-tight">
-              KRISHNA<span className="text-orange-500">DESIGN</span>
-            </Link>
+          <Link href="/" className="text-2xl font-black tracking-tight">
+          <span className="text-gray-900">KRISHNA</span><span className="text-orange-500">DESIGNS</span>
+        </Link>
           </div>
 
           <div className="flex space-x-6">
