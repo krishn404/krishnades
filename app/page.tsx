@@ -63,6 +63,19 @@ export default function Home() {
       link: "https://www.figma.com/design/JVVrgUfm3KEmIj5Y1jgA7G/Untitled?node-id=0-1&t=HT1hU9kyIKajPET7-1",
     },
     {
+      id: 8,
+      title: "Logos",
+      description: "Modern and minimalist logo design for practice",
+      fullDescription: "Created a sleek and modern logo design for multiple business idea",
+      image: "/logo.jpg",
+      category: "Logo Design",
+      year: "2025",
+      client: "Personal project.",
+      technologies: ["Adobe Illustrator", "Vector Graphics, Canva"],
+      gallery: ["/logo.jpg"],
+      featured: true,
+    },
+    {
       id: 2,
       title: "Seedhe Maut Graphic Poster",
       description: "Grungy hip-hop style Graphic Poster for Seedhe Maut",
@@ -527,6 +540,12 @@ export default function Home() {
                       icon: "✨",
                       color: "bg-blue-500",
                       description: "Designing posters, thumbnails, and visual content that tells compelling stories",
+                    },
+                    {
+                      service: "Logo Design",
+                      icon: "🎯",
+                      color: "bg-green-500",
+                      description: "Creating unique and memorable brand identities through custom logo design",
                     },
                     {
                       service: "Web Design",
