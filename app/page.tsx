@@ -24,9 +24,10 @@ export default function Home() {
   const heroScale = useTransform(scrollY, [0, 300], [1, 0.95])
   const heroOpacity = useTransform(scrollY, [0, 300], [1, 0.8])
 
-  const sections = ["home", "projects", "about"]
+  const sections = ["home", "projects", "about", "vids"]
   const projectsRef = useRef(null)
   const aboutRef = useRef(null)
+  const vidsRef = useRef(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,8 +37,10 @@ export default function Home() {
         setActiveSection("home")
       } else if (scrollPosition < aboutRef.current?.offsetTop) {
         setActiveSection("projects")
-      } else {
+      } else if (scrollPosition < vidsRef.current?.offsetTop) {
         setActiveSection("about")
+      } else {
+        setActiveSection("vids")
       }
     }
 
@@ -466,68 +469,62 @@ export default function Home() {
 
       {/* About Section */}
       <section id="about" ref={aboutRef} className="py-32 px-6 md:px-12 bg-cream-50">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="grid lg:grid-cols-2 gap-16 items-center"
-          >
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            {/* Left: About Text, Stats, CTA */}
             <div className="space-y-8">
-              <div>
-                <h2 className="text-5xl md:text-6xl font-black mb-8 text-gray-900">
-                  About <span className="text-orange-500">Me</span>
-                </h2>
-                <div className="space-y-6 text-lg text-gray-700 leading-relaxed font-bold">
-                  <p>
-                    I'm a passionate UI/UX designer and graphic artist with a keen eye for creating engaging visual
-                    experiences. My journey in design started with a love for art and technology, which has evolved into
-                    a professional career crafting digital experiences that users love.
-                  </p>
-                  <p>
-                    With expertise in both UI/UX design and graphic design, I bridge the gap between aesthetics and
-                    functionality. I believe in creating designs that not only look beautiful but also solve real user
-                    problems and enhance user experience.
-                  </p>
-                  <p>
-                    When I'm not designing, you'll find me exploring new design trends, experimenting with different art
-                    styles, or contributing to the design community through knowledge sharing.
-                  </p>
+              {/* Profile Image */}
+              <div className="flex items-center gap-6 mb-6">
+                
+                <div>
+                  <h2 className="text-5xl md:text-6xl font-black mb-2 text-gray-900">
+                    About <span className="text-orange-500">Me</span>
+                  </h2>
+                  <div className="h-2 w-16 bg-orange-400 rounded-full mb-2"></div>
                 </div>
               </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <RetroCard borderColor="orange">
-                  <div className="text-center">
-                    <div className="text-3xl font-black text-orange-500 mb-2">3+</div>
-                    <div className="text-gray-700 font-bold">Years of Experience</div>
-                  </div>
-                </RetroCard>
-                <RetroCard borderColor="blue">
-                  <div className="text-center">
-                    <div className="text-3xl font-black text-blue-500 mb-2">35+</div>
-                    <div className="text-gray-700 font-bold">Projects Completed</div>
-                  </div>
-                </RetroCard>
-                <RetroCard borderColor="red">
-                  <div className="text-center">
-                    <div className="text-3xl font-black text-red-400 mb-2">10+</div>
-                    <div className="text-gray-700 font-bold">Happy Clients</div>
-                  </div>
-                </RetroCard>
-                <RetroCard borderColor="yellow">
-                  <div className="text-center">
-                    <div className="text-3xl font-black text-yellow-400 mb-2">∞</div>
-                    <div className="text-gray-700 font-bold">Creative Ideas</div>
-                  </div>
-                </RetroCard>
+              {/* About Card */}
+              <div className="bg-cream-100 rounded-2xl border-2 border-gray-200 shadow-lg p-8 space-y-6">
+                <p className="text-lg text-gray-700 leading-relaxed font-bold">
+                  I'm a passionate UI/UX designer, graphic artist, and video editor with a keen eye for creating engaging visual experiences. My journey in design started with a love for art and technology, which has evolved into a professional career crafting digital experiences that users love.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed font-bold">
+                  With expertise in UI/UX design, graphic design, and video editing, I bridge the gap between aesthetics and functionality. I specialize in creating compelling video content, from long-form YouTube videos to viral reels and professional music videos, all while maintaining a strong focus on visual storytelling and user engagement.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed font-bold">
+                  My approach combines technical expertise with creative vision, ensuring that every project—not just websites and brand identities, but also video productions—looks beautiful and communicates its message effectively.
+                </p>
+              </div>
+              {/* Stats Row */}
+              <div className="flex flex-wrap gap-6 mt-4">
+                <div className="flex-1 min-w-[140px] bg-white rounded-xl border-2 border-orange-200 shadow p-4 text-center">
+                  <div className="text-3xl font-black text-orange-500 mb-1">3+</div>
+                  <div className="text-gray-700 font-bold text-sm">Years Experience</div>
+                </div>
+                <div className="flex-1 min-w-[140px] bg-white rounded-xl border-2 border-blue-200 shadow p-4 text-center">
+                  <div className="text-3xl font-black text-blue-500 mb-1">35+</div>
+                  <div className="text-gray-700 font-bold text-sm">Projects Completed</div>
+                </div>
+                <div className="flex-1 min-w-[140px] bg-white rounded-xl border-2 border-red-200 shadow p-4 text-center">
+                  <div className="text-3xl font-black text-red-400 mb-1">10+</div>
+                  <div className="text-gray-700 font-bold text-sm">Happy Clients</div>
+                </div>
+                <div className="flex-1 min-w-[140px] bg-white rounded-xl border-2 border-yellow-200 shadow p-4 text-center">
+                  <div className="text-3xl font-black text-yellow-400 mb-1">∞</div>
+                  <div className="text-gray-700 font-bold text-sm">Creative Ideas</div>
+                </div>
+              </div>
+              {/* CTA Button */}
+              <div className="pt-2">
+                <a href="https://www.linkedin.com/in/krishn404/" target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-4 bg-orange-500 text-white font-black rounded-xl shadow-lg border-2 border-gray-800 hover:bg-orange-600 transition-all text-lg">
+                  Let's Work Together
+                </a>
               </div>
             </div>
-
-            <div className="space-y-8">
+            {/* Right: What I Do (Sticky on large screens) */}
+            <div className="lg:sticky lg:top-32">
               <RetroWindow title="What I Do" titleBarColor="blue">
-                <div className="grid grid-cols-1 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {[
                     {
                       service: "UI/UX Design",
@@ -559,6 +556,12 @@ export default function Home() {
                       color: "bg-yellow-400",
                       description: "Developing unique brand identities that resonate with target audiences",
                     },
+                    {
+                      service: "Video Editing",
+                      icon: "🎬",
+                      color: "bg-purple-500",
+                      description: "Professional video editing for YouTube content, reels, and music videos with creative transitions and effects",
+                    }
                   ].map((item, index) => (
                     <motion.div
                       key={index}
@@ -566,38 +569,85 @@ export default function Home() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="p-4 rounded-lg bg-cream-100 border-2 border-gray-800 hover:shadow-md transition-all duration-300"
+                      className="group p-8 rounded-2xl bg-gradient-to-br from-cream-100 to-cream-50 border-2 border-gray-800 hover:border-orange-500 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col h-full"
                     >
-                      <div className="flex items-start gap-4">
+                      <div className="flex items-center gap-6 mb-4">
                         <div
-                          className={`w-12 h-12 ${item.color} rounded-lg flex items-center justify-center text-white text-xl shrink-0 border-2 border-gray-800`}
+                          className={`w-16 h-16 ${item.color} rounded-xl flex items-center justify-center text-white text-3xl shrink-0 border-2 border-gray-800 group-hover:scale-110 transition-transform duration-300`}
                         >
                           {item.icon}
                         </div>
-                        <div>
-                          <h4 className="text-lg font-black text-gray-900 mb-2">{item.service}</h4>
-                          <p className="text-gray-700 font-bold text-sm">{item.description}</p>
+                        <div className="flex-1">
+                          <h4 className="text-2xl font-black text-gray-900 group-hover:text-orange-500 transition-colors mb-1">
+                            {item.service}
+                          </h4>
+                          <div className="h-1 w-12 bg-orange-400 rounded-full mb-2 group-hover:bg-orange-500 transition-colors"></div>
                         </div>
                       </div>
+                      <p className="text-gray-700 font-bold text-base leading-relaxed flex-1 flex items-center">
+                        {item.description}
+                      </p>
                     </motion.div>
                   ))}
                 </div>
               </RetroWindow>
-
-              <RetroWindow title="Let's Work Together" titleBarColor="orange">
-                <div className="text-center space-y-4">
-                  <h4 className="text-2xl font-black text-gray-900">Ready to Collaborate?</h4>
-                  <p className="text-gray-700 font-bold">
-                    Have a project in mind? I'm always open to discussing new projects, creative ideas, or opportunities
-                    to be part of your vision.
-                  </p>
-                  <RetroButton variant="secondary" asChild>
-                    <Link href="https://www.linkedin.com/in/krishn404/">Get in Touch</Link>
-                  </RetroButton>
-                </div>
-              </RetroWindow>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Videos Section */}
+      <section id="vids" ref={vidsRef} className="py-32 px-6 md:px-12 bg-cream-100">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-20"
+          >
+            <h2 className="text-5xl md:text-7xl font-black mb-8 text-gray-900">
+              Video <span className="text-orange-500">Gallery</span>
+            </h2>
+            <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-bold">
+              Watch my latest video content and tutorials
+            </p>
           </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              "dMoDxAwPnDc",
+              "OPgAxS2kpJE",
+              "Vr8GEHHCejA",
+              "x_nlB6-E-Zc",
+              "JzIMvm92jXc",
+              "tjUn2cCrlSw",
+              "FrMcJN-ZNVE",
+              "xVKoMGFcWrE",
+              "m_G2iaO_sZA",
+              "ZmdoqfV0VZ4"
+            ].map((videoId, index) => (
+              <motion.div
+                key={videoId}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <RetroWindow title="YouTube Video" titleBarColor="red">
+                  <div className="aspect-video relative">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${videoId}`}
+                      title={`Video ${index + 1}`}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full rounded-lg border-2 border-gray-800"
+                    />
+                  </div>
+                </RetroWindow>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
